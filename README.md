@@ -1,99 +1,67 @@
-RAG App with FastAPI & Docker
-
-This project is an AI-powered Retrieval-Augmented Generation (RAG) application built using FastAPI for the backend and Streamlit for the frontend. The entire solution is containerized with Docker for seamless deployment.
+RAG App with FastAPI and Docker
+This project is an AI-powered Retrieval-Augmented Generation (RAG) App built with FastAPI (backend) and Streamlit (frontend), fully containerized using Docker for streamlined deployment.
 
 Prerequisites
-Ensure the following tools are installed before running the project:
+Ensure the following are installed on your system:
 
-VS Code (recommended)
+VS Code (Recommended)
 
-Anaconda (for managing the virtual environment)
+Anaconda (for virtual environment)
 
-Python 3.10 or higher
+Python 3.10+
 
 Docker (for containerized deployment)
 
-Installation & Setup
+Installation and Setup
 1. Clone the Repository
-Open VS Code, launch a terminal, and run:
-
-bash
-Copy
-Edit
 git clone <your-github-repo-url>
 cd <your-repo-folder>
-2. Setup Virtual Environment (Anaconda)
-Create and activate a new virtual environment:
 
-bash
-Copy
-Edit
+2. Set Up the Virtual Environment (Anaconda)
 conda create --name fastapi-rag python=3.10 -y
 conda activate fastapi-rag
-Install required dependencies:
-
-bash
-Copy
-Edit
 pip install -r requirements.txt
+
 Run the App Without Docker (Optional)
-Start FastAPI Backend:
-bash
-Copy
-Edit
+Start the FastAPI Backend
 uvicorn backend:app --host 0.0.0.0 --port 8000 --reload
-Visit the API documentation at: http://127.0.0.1:8000/docs
+API Docs: http://127.0.0.1:8000/docs
 
-Start Streamlit Frontend:
-bash
-Copy
-Edit
+Start the Streamlit Frontend
 streamlit run app.py --server.port 8501
-Open the UI at: http://127.0.0.1:8501
+UI: http://127.0.0.1:8501
 
-Run the App Using Docker
-1. Ensure Docker is Installed
-Verify with:
-
-bash
-Copy
-Edit
+Running with Docker
+1. Install Docker
+Check installation:
 docker --version
-2. Build Docker Image
-Run the following in your project directory:
 
-bash
-Copy
-Edit
+2. Build the Docker Image
 docker build -t rag-app .
-3. Run Docker Container
-bash
-Copy
-Edit
+
+3. Run the Docker Container
 docker run -p 8000:8000 -p 8501:8501 rag-app
+
 4. Access the Application
-FastAPI API Docs: http://127.0.0.1:8000/docs
+FastAPI Docs: http://127.0.0.1:8000/docs
 
 Streamlit UI: http://127.0.0.1:8501
 
-#Project Structure
-bash
-Copy
-Edit
-📂 your-repo-folder
- ├── app.py           # Streamlit frontend
- ├── backend.py       # FastAPI backend
- ├── Dockerfile       # Docker build instructions
- ├── .dockerignore    # Files to exclude from Docker context
- ├── requirements.txt # Python dependencies
- 
-#How It Works
-User uploads a PDF using the Streamlit interface
+Project Structure
+your-repo-folder/
+├── app.py # Streamlit frontend
+├── backend.py # FastAPI backend
+├── Dockerfile # Docker container setup
+├── .dockerignore # Files ignored during Docker build
+├── requirements.txt # List of dependencies
 
-FastAPI processes and indexes the content
+How It Works
+User uploads a PDF via Streamlit UI
 
-User asks a question through the UI
+FastAPI extracts and indexes the content for retrieval
 
-The system retrieves relevant content and generates an answer using AI
+User submits a query
 
-The response is shown in the Streamlit interface
+AI retrieves relevant data and generates an answer
+
+Streamlit displays the response
