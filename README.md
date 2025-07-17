@@ -1,4 +1,5 @@
 RAG App with FastAPI & Docker
+
 This project is an AI-powered Retrieval-Augmented Generation (RAG) application built using FastAPI for the backend and Streamlit for the frontend. The entire solution is containerized with Docker for seamless deployment.
 
 Prerequisites
